@@ -1,0 +1,154 @@
+body{
+	background-color: #468E8D;
+}
+div.sixShen{
+	position: relative;
+	width: 100px;
+	height: 400px;
+	top: 100px;
+	left: 90px;
+	float: left;
+}
+div.tianganList select{
+	position: relative;
+	top: 20px;
+}
+div.benGua{
+	position: relative;
+	width: 350px;
+	top: 100px;
+	left: 100px;
+	float: left;
+}
+div.bianGua{
+	position: relative;
+	width: 350px;
+	top: 100px;
+	left: 250px;
+	float: left;
+}
+div.sixShen div.gua{
+	position: relative;
+	top: 4px;
+	left: 20px;
+}
+div.sixShen div.gua div#riGanZhi{
+	color: #105150;
+	font-weight: bold;
+	height: 29px;
+	width:50px;
+	vertical-align: center;
+}
+div.sixShen div.gua div.animal{
+	position: relative;
+	width:50px;
+	height: 29px;
+	color: #105150;
+	margin-top: 21.5px;
+	font-weight: bold;
+	vertical-align: center;
+}
+
+div.yao:hover {
+	cursor: pointer;
+}
+div.unhover {
+	background: #66a09f !important;
+}
+
+div.gua{
+	position: relative;
+}
+div.gua div.yao{
+	position: relative;
+	margin-bottom: 20px;
+	background-color: #efefef;
+	left: 25px;
+	width: 200px;
+	height: 30px;
+	transition-duration: 1s;
+}
+div.gua div.shy{
+	position: relative;
+	left: -20px;
+	width: 40px;
+	height: 30px;
+	color: #105150;
+	margin-top: 2px;
+	font-weight: bold;
+	text-align: end;
+	vertical-align: center;
+	float: left;
+}
+div.gua div.yao div.y1{
+	display: none;
+}
+div.gua div.yao div.y0{
+	position: relative;
+	background-color: #468e8d;
+	left: 85px;
+	width: 20px;
+	height: 30px;
+}
+div.title{
+	position: relative;
+	height: 50px;
+	width: 200px;
+	color: #105150;
+	text-align: center;
+	font-size: 25px;
+	left: 20px;
+}
+div.guaName{
+	position: relative;
+	height: 50px;
+	width: 200px;
+	color: #105150;
+	text-align: center;
+	font-size: 40px;
+	left: 20px;
+
+}
+/*地支*/
+div.gz{
+	position: absolute;
+	color: #105150;
+	font-size: 20px;
+	left: 230px;
+	margin-top: -51px;
+	width: 100px;
+}
+div.guaCi{
+	position: absolute;
+	left: 230px;
+	top: 600px;
+	width: 1000px;
+	height: 100px;
+	font-size: 20px;
+	color:#105150;
+	float: left;
+}
+div#bg-guaName {
+	position: absolute;
+	font-size: 600px;
+	top: -50px;
+	color: #66a09f;
+	cursor: default;
+	transition-duration: 1s;
+	font-family: 宋体;
+}
+div.bg_unhover {
+	opacity: 0.25;
+}
+div.navigator {
+	position: relative;
+	top: 700px;
+	left: -700px;
+}
+div.navigator div a{
+	width: 50px;
+    height: 29px;
+    color: #105150;
+	font: bold 15px/36px 宋体;
+	text-decoration: none;
+}
