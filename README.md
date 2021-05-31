@@ -1,3 +1,2 @@
 # SixYao
-## 六爻纳甲
-### https://jorypein.github.io/SixYao/index.html
+[Open Site](https://jorypein.github.io/SixYao)
