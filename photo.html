@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片修改</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-6">
+        <!-- 标题 (Title) -->
+        <h2 class="text-2xl font-semibold mb-6 text-center">图片修改</h2>
+
+        <div class="flex flex-col sm:flex-row justify-between space-y-6 sm:space-y-0">
+            <!-- 按钮和图片显示区域 (Button and Image Display Area) -->
+            <div class="flex flex-col items-center space-y-4 sm:w-2/3 md:p-4">
+                <input type="file" id="image-upload" accept="image/*" class="px-3 py-1.5 border border-gray-300 rounded" />
+                <div id="image-container" class="text-center w-full">
+                    <img id="uploaded-image" src="" class="max-w-full max-h-96 mx-auto rounded shadow-lg" />
+                </div>
+                <button id="download-button" class="px-4 py-1 bg-blue-500 text-white rounded ">下载图片 (Download Image)</button>
+            </div>
+
+            <!-- 滤镜控制区域 (Filter Control Area) -->
+            <div class="w-full sm:w-1/3 space-y-4">
+                <div class="space-y-4">
+                    <!-- 亮度调节 (Brightness) -->
+                    <div class="flex items-center justify-between">
+                        <label for="brightness" class="w-1/3">亮度 (Brightness):</label>
+                        <input type="range" id="brightness" min="0" max="2" step="0.1" value="1" class="w-2/3" />
+                        <span id="brightness-value">1</span>
+                    </div>
+
+                    <!-- 对比度调节 (Contrast) -->
+                    <div class="flex items-center justify-between">
+                        <label for="contrast" class="w-1/3">对比度 (Contrast):</label>
+                        <input type="range" id="contrast" min="0" max="2" step="0.1" value="1" class="w-2/3" />
+                        <span id="contrast-value">1</span>
+                    </div>
+
+                    <!-- 灰度调节 (Grayscale) -->
+                    <div class="flex items-center justify-between">
+                        <label for="grayscale" class="w-1/3">灰度 (Grayscale):</label>
+                        <input type="range" id="grayscale" min="0" max="1" step="0.1" value="0" class="w-2/3" />
+                        <span id="grayscale-value">0</span>
+                    </div>
+
+                    <!-- 褐色调调节 (Sepia) -->
+                    <div class="flex items-center justify-between">
+                        <label for="sepia" class="w-1/3">褐色调 (Sepia):</label>
+                        <input type="range" id="sepia" min="0" max="1" step="0.1" value="0" class="w-2/3" />
+                        <span id="sepia-value">0</span>
+                    </div>
+
+                    <!-- 模糊度调节 (Blur) -->
+                    <div class="flex items-center justify-between">
+                        <label for="blur" class="w-1/3">模糊度 (Blur):</label>
+                        <input type="range" id="blur" min="0" max="10" step="0.1" value="0" class="w-2/3" />
+                        <span id="blur-value">0</span>
+                    </div>
+
+                    <!-- 色相旋转调节 (Hue-rotate) -->
+                    <div class="flex items-center justify-between">
+                        <label for="hue-rotate" class="w-1/3">色相旋转 (Hue-rotate):</label>
+                        <input type="range" id="hue-rotate" min="0" max="360" step="1" value="0" class="w-2/3" />
+                        <span id="hue-rotate-value">0</span>
+                    </div>
+
+                    <!-- 饱和度调节 (Saturate) -->
+                    <div class="flex items-center justify-between">
+                        <label for="saturate" class="w-1/3">饱和度 (Saturate):</label>
+                        <input type="range" id="saturate" min="0" max="2" step="0.1" value="1" class="w-2/3" />
+                        <span id="saturate-value">1</span>
+                    </div>
+
+                    <!-- 反转颜色调节 (Invert) -->
+                    <div class="flex items-center justify-between">
+                        <label for="invert" class="w-1/3">反转颜色 (Invert):</label>
+                        <input type="range" id="invert" min="0" max="1" step="0.1" value="0" class="w-2/3" />
+                        <span id="invert-value">0</span>
+                    </div>
+
+                    <!-- 不透明度调节 (Opacity) -->
+                    <div class="flex items-center justify-between">
+                        <label for="opacity" class="w-1/3">不透明度 (Opacity):</label>
+                        <input type="range" id="opacity" min="0" max="1" step="0.1" value="1" class="w-2/3" />
+                        <span id="opacity-value">1</span>
+                    </div>
+
+                    <!-- 阴影调节 (Drop shadow) -->
+                    <div class="flex items-center justify-between">
+                        <label for="drop-shadow" class="w-1/3">阴影 (Drop shadow):</label>
+                        <input type="range" id="drop-shadow" min="0" max="20" step="1" value="0" class="w-2/3" />
+                        <span id="drop-shadow-value">0</span>
+                    </div>
+
+                    <!-- 旋转控制 (Rotation Control) -->
+                    <div class="flex items-center justify-between">
+                        <label for="rotate" class="w-1/3">旋转 (Rotate):</label>
+                        <input type="range" id="rotate" min="0" max="360" step="1" value="0" class="w-2/3" />
+                        <span id="rotate-value">0</span>
+                    </div>
+
+                    <!-- 水平翻转控制 (Flip Horizontal Control) -->
+                    <div class="flex items-center justify-between">
+                        <label for="flip-horizontal" class="w-1/3">水平翻转 (Flip Horizontal):</label>
+                        <input type="checkbox" id="flip-horizontal" class="w-1/3" />
+                    </div>
+
+                    <!-- 垂直翻转控制 (Flip Vertical Control) -->
+                    <div class="flex items-center justify-between">
+                        <label for="flip-vertical" class="w-1/3">垂直翻转 (Flip Vertical):</label>
+                        <input type="checkbox" id="flip-vertical" class="w-1/3" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 更新滤镜和图像变换 (Update filters and transformations)
+        function updateImageTransform() {
+            const brightness = document.getElementById('brightness').value;
+            const contrast = document.getElementById('contrast').value;
+            const invert = document.getElementById('invert').value;
+            const rotate = document.getElementById('rotate').value;
+            const flipHorizontal = document.getElementById('flip-horizontal').checked ? 'scaleX(-1)' : 'scaleX(1)';
+            const flipVertical = document.getElementById('flip-vertical').checked ? 'scaleY(-1)' : 'scaleY(1)';
+
+            document.getElementById('brightness-value').textContent = brightness;
+            document.getElementById('contrast-value').textContent = contrast;
+            document.getElementById('invert-value').textContent = invert;
+            document.getElementById('rotate-value').textContent = rotate;
+
+            const img = document.getElementById('uploaded-image');
+            img.style.filter = `brightness(${brightness}) contrast(${contrast}) invert(${invert})`;
+            img.style.transform = `rotate(${rotate}deg) ${flipHorizontal} ${flipVertical}`;
+        }
+
+        // 处理图片上传 (Handle image upload)
+        document.getElementById('image-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.getElementById('uploaded-image');
+                img.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 滑动条变化时更新图片滤镜和变换 (Update image filter and transformations when slider value changes)
+        document.querySelectorAll('input[type="range"], input[type="checkbox"]').forEach(input => {
+            input.addEventListener('input', updateImageTransform);
+        });
+
+        // 下载修改后的图片 (Download the modified image)
+        document.getElementById('download-button').addEventListener('click', function() {
+            const img = document.getElementById('uploaded-image');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Ensure image has loaded
+            if (img.complete && img.naturalWidth !== 0) {
+                // Set canvas size to the image's natural width and height
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+
+                // Get the transformations
+                const rotate = document.getElementById('rotate').value;
+                const flipHorizontal = document.getElementById('flip-horizontal').checked;
+                const flipVertical = document.getElementById('flip-vertical').checked;
+
+                // Apply rotation and flip transformations to the canvas context
+                ctx.save(); // Save the current context state
+
+                // Translate to the center of the canvas for rotation
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+
+                // Rotate the canvas context
+                ctx.rotate(rotate * Math.PI / 180); // Convert degrees to radians
+
+                // Apply flip transformations if checked
+                if (flipHorizontal) {
+                    ctx.scale(-1, 1); // Flip horizontally
+                }
+                if (flipVertical) {
+                    ctx.scale(1, -1); // Flip vertically
+                }
+
+                // Draw the image on the canvas after transformations
+                ctx.drawImage(img, -img.naturalWidth / 2, -img.naturalHeight / 2);
+
+                // Restore the context to the original state (without transformations)
+                ctx.restore();
+
+                // Apply filters
+                ctx.filter = img.style.filter;
+
+                // Create the download link
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'modified-image.png';
+                link.click();
+            } else {
+                alert('请确保图片已完全加载。');
+            }
+        });
+
+    </script>
+</body>
+</html>
